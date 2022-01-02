@@ -2,3 +2,52 @@
 // Написать программу, которая из имеющегося массива целых чисел формирует массив четных чисел. (решение без использования коллекций)
 
 
+int[] primaryArray = new int[] {-32,-17,14,928,20,27,1,120,23412,435343}; // массив целых чисел
+
+int countEvenElements;                                                    // переменная для хранения значения количества четных элементов массива
+
+int CountEvenElements(int[] arr)                                          // метод определяющий количество четных элементов для формирования нового массива.
+{
+    int count = 0;
+
+    for(int i = 0; i < arr.Length; i++)
+    {
+        if(arr[i] % 2 == 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+countEvenElements = CountEvenElements(primaryArray);                      
+
+int[] arrayEven = new int[countEvenElements];                             
+
+int[] FillEvenNumbers(int[] firstArr, int[] secondArr)                    // метод заполняющий второй массив четными числами 
+{
+    int index = 0;
+
+    for(int i = 0; i < firstArr.Length; i++)
+    {
+        if(firstArr[i] % 2 == 0)
+        {
+            secondArr[index] = firstArr[i];
+            index++;
+        }
+    }
+    return secondArr;
+}
+
+var el = FillEvenNumbers(primaryArray,arrayEven);                     
+
+void PrintArray(int[] arr)                                                 // метод, выводящий все элементы массива 
+{
+    for(int i = 0; i < arr.Length; i++)
+    {
+        Console.WriteLine(arr[i]);
+    }
+}
+
+
+PrintArray(el);
